@@ -7,7 +7,6 @@ import re
 import socket
 import requests
 
-# Inicializar colorama para el soporte de colores en la consola
 init()
 
 # Ruta del archivo de configuración
@@ -36,7 +35,6 @@ if not api_key:
         config.write(file)
 
 
-# Mostrar el banner
 print(r"""
                                                                                                              
 88                                  88          ,ad8888ba,   88                                   88         
@@ -51,7 +49,6 @@ print(r"""
                                                                                                                
 """)
 
-# Bucle principal
 while True:
     try:
         # Inicializar API
@@ -72,14 +69,13 @@ while True:
             print(f"{Fore.LIGHTYELLOW_EX}La dirección de correo electrónico ingresada no es válida.{Style.RESET_ALL}")
             continue
 
-        # Realizar la solicitud utilizando el correo ingresado
-        result = api.lookup(correo)  # lista de diccionarios
+        result = api.lookup(correo)
 
         # Verificar si hay coincidencias
         if result:
             print(Fore.GREEN + "¡Estás de suerte! Se encontraron coincidencias:" + Style.RESET_ALL)
             print(f"Total de coincidencias: {len(result)}")
-            print("-" * 30)  # Línea separadora
+            print("-" * 30) 
 
             # Mostrar los resultados obtenidos
             for r in result:
@@ -98,7 +94,7 @@ while True:
                 else:
                     print(Fore.BLUE + "Última violación:" + Style.RESET_ALL, "Sin datos")
 
-                print("-" * 30)  # Línea separadora
+                print("-" * 30) 
 
         else:
             print("No se encontraron coincidencias para el correo ingresado.")
